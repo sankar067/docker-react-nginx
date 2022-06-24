@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sankar067/docker-react-nginx -f Dockerfile.dev .
+
+
+script:
+  - docker run sankar067/docker-react-nginx npm run test -- --coverage
